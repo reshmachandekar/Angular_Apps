@@ -1,0 +1,17 @@
+.screen{
+    width: 50%;
+    float: left;
+}
+.separator{
+    margin: 30px;
+    background-color: #eeeeee;
+    padding: 2px;
+}
+.navbar-brand{
+    margin: 0;
+    padding: 0;
+}
+.main-html{
+    margin-top: 100px;
+    text-align: center;
+}

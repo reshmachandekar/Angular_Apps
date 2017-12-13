@@ -1,0 +1,83 @@
+<p>
+  three works!
+</p>
+SOME IMPORTANT LINKS
+<ul style="list-style: none;">
+  <li>
+    <a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a>
+  </li>
+  <li>
+    <a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a>
+  </li>
+  <li>
+    <a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a>
+  </li>
+</ul>
+
+<!-- Example 1
+<div id="wrapper" ng-app="myApp">
+  <p>{{datePicker || "00/00/0000"}}</p>
+  <input type="text" ng-model="datePicker" datepicker />
+</div>
+
+Example 2
+<div ngbDropdown class="d-inline-block">
+  <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle> dropdown Menu</button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <button class="dropdown-item">Dropdown 1</button>
+      <button class="dropdown-item">Dropdown 2</button>
+      <button class="dropdown-item">Dropdown 3</button>
+  </div>
+</div>
+
+Example 3
+<select ng-model="selectedCar">
+  <option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}</option>
+  </select>
+  
+  <h1>You selected: {{selectedCar}}</h1> -->
+  
+  
+<!-- <div ng-app="App">
+  <div ng-controller="AppCtrl">
+      <h3>{{model}}</h3>
+      <div id="slider"></div>
+  </div>    
+</div> -->
+
+
+<script>
+  // Example 3
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.cars = [
+        {model : "Ford Mustang", color : "red"},
+        {model : "Fiat 500", color : "white"},
+        {model : "Volvo XC90", color : "black"}
+    ];
+});
+
+// example 1
+  var myApp = angular.module('myApp', []);
+
+myApp.directive("datepicker", function () {
+  return {
+    restrict: "A",
+    require: "ngModel",
+    link: function (scope, elem, attrs, ngModelCtrl) {
+      var updateModel = function (dateText) {
+        scope.$apply(function () {
+          ngModelCtrl.$setViewValue(dateText);
+        });
+      };
+      var options = {
+        dateFormat: "dd/mm/yy",
+        onSelect: function (dateText) {
+          updateModel(dateText);
+        }
+      };
+      elem.datepicker(options);
+    }
+  }
+});
+</script>
